@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Surprise 🎂</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f7c4ff, #d8b4ff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* كارت عام */
+    .card {
+      background: white;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
+      transform: perspective(1000px);
+      transition: transform 0.4s;
+    }
+
+    .card:hover {
+      transform: perspective(1000px) rotateY(5deg);
+    }
+
+    /* الصفحة الأولى (صغيرة) */
+    #page1 {
+      width: 360px;
+      padding: 30px;
+    }
+
+    /* الصفحات الكبيرة */
+    #page2 {
+      display: none;
+      width: 650px;
+      padding: 40px;
+    }
+
+    h2 {
+      color: #7a2fa0;
+    }
+
+    input {
+      width: 80%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin-top: 15px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #ff9ad5, #c77dff);
+      color: white;
+      font-size: 17px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    video {
+      width: 100%;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    }
+
+    #secretMessage {
+      display: none;
+      margin-top: 25px;
+      font-size: 20px;
+      color: #8e44ad;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- الصفحة الأولى (زي ما هي) -->
+  <div class="card" id="page1">
+    <h2>اكتبي الكود 💖</h2>
+    <p>يوم مميز جدًا 🎂</p>
+    <input type="text" id="code" placeholder="20/2">
+    <br>
+    <button onclick="checkCode()">دخول ✨</button>
+  </div>
+
+  <!-- الصفحة التانية (أكبر) -->
+  <div class="card" id="page2">
+    <h2>Happy Birthday 🎉</h2>
+
+    <!-- حطي الفيديو بتاعك -->
+    <video controls>
+      <source src="video.mp4" type="video/mp4">
+      المتصفح لا يدعم تشغيل الفيديو
+    </video>
+
+    <button onclick="showMessage()">في حاجة كمان بسيطة 💌</button>
+
+    <div id="secretMessage">
+      كل سنة وإنتي أحلى نعمة في حياتي 💕  
+      ضحكتك أمان، وقربك راحة  
+      وربنا يديمك ليا دايمًا ✨
+    </div>
+  </div>
+
+  <script>
+    function checkCode() {
+      const correctCode = "20/2";
+      const userCode = document.getElementById("code").value.trim();
+
+      if (userCode === correctCode) {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+      } else {
+        alert("الكود غلط 😅 جربي تاني");
+      }
+    }
+
+    function showMessage() {
+      document.getElementById("secretMessage").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
